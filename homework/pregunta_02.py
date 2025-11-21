@@ -15,9 +15,12 @@ def pregunta_02():
 
     """
     import pandas as pd
+    from pathlib import Path
+
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl0.tsv
-    df = pd.read_csv("files\\input\\tbl0.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl0.tsv"), sep="\t")
 
     # Obtener la cantidad de columnas
     num_columnas = df.shape[1]

@@ -23,10 +23,10 @@ def pregunta_11():
     39   39    a,d,f
     """
     import pandas as pd
-
+    from pathlib import Path
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
     # Leer el archivo tbl1.tsv
-    df = pd.read_csv("files\\input\\tbl1.tsv", sep="\t")
-
+    df = pd.read_csv(str(data_dir / "tbl1.tsv"), sep="\t")
     # Agrupar por 'c0' y concatenar los valores de 'c4' separados por ','
     resultado = df.groupby('c0')['c4'].apply(lambda x: ','.join(sorted(x))).reset_index()
 

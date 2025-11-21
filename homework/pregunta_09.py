@@ -24,9 +24,12 @@ def pregunta_09():
 
     """
     import pandas as pd
+    from pathlib import Path
+
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl0.tsv
-    df = pd.read_csv("files\\input\\tbl0.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl0.tsv"), sep="\t")
 
     # Extraer el año (como cadena) de la columna 'c3' y agregarlo como 'year'
     df['year'] = df['c3'].str.slice(0, 4)

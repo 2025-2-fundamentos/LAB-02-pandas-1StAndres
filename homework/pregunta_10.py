@@ -21,9 +21,13 @@ def pregunta_10():
     E   1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
     import pandas as pd
+    from pathlib import Path
+
+    # Construir ruta absoluta a files/input desde la ubicación de este archivo
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl0.tsv
-    df = pd.read_csv("files\\input\\tbl0.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl0.tsv"), sep="\t")
 
     # Agrupar por 'c1' y concatenar los valores de 'c2' separados por ':'
     resultado = df.groupby('c1')['c2'].apply(lambda x: ':'.join(map(str, sorted(x)))).to_frame()

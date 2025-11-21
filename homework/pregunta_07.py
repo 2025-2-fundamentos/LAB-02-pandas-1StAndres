@@ -21,9 +21,13 @@ def pregunta_07():
     Name: c2, dtype: int64
     """
     import pandas as pd
+    from pathlib import Path
+
+    # Construir ruta absoluta a files/input desde la ubicación de este archivo
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl0.tsv
-    df = pd.read_csv("files\\input\\tbl0.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl0.tsv"), sep="\t")
 
     # Calcular la suma de 'c2' por cada letra en la columna 'c1'
     suma = df.groupby('c1')['c2'].sum()

@@ -21,9 +21,13 @@ def pregunta_04():
     Name: c2, dtype: float64
     """
     import pandas as pd
+    from pathlib import Path
+
+    # Construir ruta absoluta a files/input desde la ubicación de este archivo
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl0.tsv
-    df = pd.read_csv("files\\input\\tbl0.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl0.tsv"), sep="\t")
 
     # Calcular el promedio de 'c2' por cada letra en la columna 'c1'
     promedio = df.groupby('c1')['c2'].mean()

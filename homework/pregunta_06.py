@@ -16,9 +16,12 @@ def pregunta_06():
 
     """
     import pandas as pd
+    from pathlib import Path
+
+    data_dir = Path(__file__).resolve().parent.parent / "files" / "input"
 
     # Leer el archivo tbl1.tsv
-    df = pd.read_csv("files\\input\\tbl1.tsv", sep="\t")
+    df = pd.read_csv(str(data_dir / "tbl1.tsv"), sep="\t")
 
     # Obtener los valores únicos de la columna 'c4', convertir a mayúsculas y ordenar alfabéticamente
     valores_unicos = sorted(df['c4'].str.upper().unique())
