@@ -33,3 +33,4 @@ def pregunta_13():
     resultado = merged_df.groupby('c1')['c5b'].sum()
 
     return resultado
+
